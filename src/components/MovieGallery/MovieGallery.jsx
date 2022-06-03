@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const MovieGallery = ({ movies }) => {
-  console.log(movies, 'gallery');
   const location = useLocation();
   const renderGallery = () =>
     movies.map(({ id, title }) => (

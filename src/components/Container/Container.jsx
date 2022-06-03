@@ -1,5 +1,5 @@
-export const Container = ({ children, className }) => {
-  const classList = `container ${className}`;
+import styles from './Container.module.css';
 
-  return <div className={classList}>{children}</div>;
+export const Container = ({ children }) => {
+  return <div className={styles['container']}>{children}</div>;
 };

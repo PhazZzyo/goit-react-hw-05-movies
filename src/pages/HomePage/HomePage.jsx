@@ -16,12 +16,11 @@ export const HomePage = () => {
     setIsLoading(true);
     try {
       fetchMovies().then(data => {
-        console.log(data.data.results);
         const mappedMovies = data.data.results.map(({ id, title }) => ({
           id,
           title,
         }));
-        setMovies([mappedMovies]);
+        setMovies(mappedMovies);
       });
     } catch (error) {
       setError(error);
@@ -29,7 +28,7 @@ export const HomePage = () => {
       setIsLoading(false);
     }
   }, []);
-  console.log(movies, 'movies state');
+
   return (
     <>
       {isLoading && <Loader />}
