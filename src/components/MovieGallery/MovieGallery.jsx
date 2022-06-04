@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 // import style from './MovieGallery.module.css';
 import PropTypes from 'prop-types';
 
-const MovieGallery = ({ movies }) => {
+export const MovieGallery = ({ movies }) => {
   const location = useLocation();
   const renderGallery = () =>
     movies.map(({ id, title }) => (
