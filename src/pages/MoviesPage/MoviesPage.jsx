@@ -3,9 +3,9 @@ import { toast } from 'react-toastify';
 import Loader from 'components/Loader/Loader';
 import Searchbar from 'components/Searchbar/Searchbar';
 import MovieGallery from 'components/MovieGallery/MovieGallery';
-import { fetchMovies } from 'services/fetchMovies';
+import { fetchMoviesByRequest } from 'services/fetchMovies';
 
-export const MoviesPage = () => {
+export default function MoviesPage() {
   const [searchRequest, setSearchRequest] = useState('');
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
@@ -17,21 +17,17 @@ export const MoviesPage = () => {
 
       setTimeout(() => {
         try {
-          fetchMovies(searchRequest).then(data => {
-            if (!data.data.hits.length) {
+          fetchMoviesByRequest(searchRequest).then(data => {
+            if (!data.data.results.length) {
               return toast.error(
                 'There is no movies found with that search request'
               );
             }
-            const mappedMovies = data.data.hits.map(
-              ({ id, webformatURL, tags, largeImageURL }) => ({
-                id,
-                webformatURL,
-                tags,
-                largeImageURL,
-              })
-            );
-            setMovies(i => [...i, ...mappedMovies]);
+            const mappedMovies = data.data.results.map(({ id, title }) => ({
+              id,
+              title,
+            }));
+            setMovies([...mappedMovies]);
           });
         } catch (error) {
           setError(error);
@@ -61,4 +57,4 @@ export const MoviesPage = () => {
       {movies.length > 0 && <MovieGallery movies={movies} />}
     </>
   );
-};
+}

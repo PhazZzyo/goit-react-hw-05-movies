@@ -12,16 +12,21 @@ const MovieDetailsPage = lazy(() =>
 
 export const App = () => {
   return (
-    <Container>
+    <>
       <Navigation />
       <Outlet />
-      <Suspense fallback={<Loader color={'#3f51b5'} size={32} />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />}></Route>
-        </Routes>
-      </Suspense>
-    </Container>
+      <Container>
+        <Suspense fallback={<Loader color={'#3f51b5'} size={32} />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/movies" element={<MoviesPage />} />
+            <Route
+              path="/movies/:movieId"
+              element={<MovieDetailsPage />}
+            ></Route>
+          </Routes>
+        </Suspense>
+      </Container>
+    </>
   );
 };
