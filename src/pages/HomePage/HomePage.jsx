@@ -7,7 +7,7 @@ import { fetchMovies } from '../../services/fetchMovies';
 import Loader from 'components/Loader/Loader';
 // import styles from './HomePage.module.css';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
