@@ -3,6 +3,8 @@ import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import Loader from 'components/Loader/Loader';
+import Button from 'components/Button/Button';
+import MovieCard from 'components/MovieCard/MovieCard';
 
 import { fetchMoviesById } from '../../services/fetchMovies';
 
@@ -20,34 +22,17 @@ export default function MovieDetailsPage() {
   const [error, setError] = useState(null);
 
   const location = useLocation();
-  const fromLocation = location?.state?.from ?? DEFAULT_LOCATION_STATE;
+  const prevLocation = location?.state?.from ?? DEFAULT_LOCATION_STATE;
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
       try {
-        fetchMoviesById(movieId).then(data => {
-          const mappedMovie = data.data.results.map(
-            ({
-              id,
-              backdrop_path,
-              title,
-              release_date,
-              popularity,
-              overview,
-              genres,
-            }) => ({
-              id,
-              backdrop_path,
-              title,
-              release_date,
-              popularity,
-              overview,
-              genres,
-            })
-          );
-          setMovie(mappedMovie);
-        });
+        fetchMoviesById(movieId)
+          .then(fetchedMovie)
+          .then(movie => {
+            setMovie(movie);
+          });
       } catch (error) {
         setError(error);
       } finally {
@@ -56,8 +41,8 @@ export default function MovieDetailsPage() {
     }, 1000);
   }, [movieId]);
 
-  const GoBackHandler = () => {
-    useNavigate(fromLocation.location);
+  const GoBack = () => {
+    useNavigate(prevLocation.location);
   };
 
   return (
@@ -65,10 +50,33 @@ export default function MovieDetailsPage() {
       {error && toast.error(`Whoops, something went wrong: ${error.message}`)}
       <>
         {isLoading && <Loader color={'#3f51b5'} size={32} />}
-        {console.log(movie)}
-        {/* <GoBackButton onClickHandler={GoBackHandler} /> */}
-        {/* <MovieCardRender movie={movie} fromLocation={fromLocation} /> */}
+        <Button GoBack={GoBack} />
+        <MovieCard movie={movie} prevLocation={prevLocation} />
       </>
     </>
   );
 }
+
+const fetchedMovie = data => {
+  console.log(data);
+  const {
+    id,
+    backdrop_path,
+    title,
+    release_date,
+    popularity,
+    overview,
+    genres,
+  } = data.data;
+  const movie = {
+    id,
+    backdrop_path,
+    title,
+    release_date,
+    popularity,
+    overview,
+    genres,
+  };
+  console.log(movie);
+  return movie;
+};
