@@ -17,7 +17,7 @@ export default function MoviesPage() {
   const currentUrl = {
     prevPage: `${pathname}${search}`,
   };
-  console.log(pathname, search);
+  console.log(searchParams);
 
   useEffect(() => {
     const updateMovies = searchRequest => {
