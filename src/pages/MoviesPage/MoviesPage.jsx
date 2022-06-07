@@ -7,17 +7,21 @@ import MovieGallery from 'components/MovieGallery/MovieGallery';
 import { fetchMoviesByRequest } from 'services/fetchMovies';
 
 export default function MoviesPage() {
-  const [searchRequest, setSearchRequest] = useState('');
+  // const [searchRequest, setSearchRequest] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const searchRequest = searchParams.get('query');
 
-  const { pathname, search } = useLocation;
-  const currentUrl = {
-    prevPage: `${pathname}${search}`,
-  };
-  console.log(searchParams);
+  const location = useLocation();
+  console.log(location);
+
+  // const { pathname, search } = useLocation;
+  // const currentUrl = {
+  //   prevPage: `${pathname}${search}`,
+  // };
+  // console.log(searchParams);
 
   useEffect(() => {
     const updateMovies = searchRequest => {
@@ -50,12 +54,15 @@ export default function MoviesPage() {
   }, [searchRequest]);
 
   const handleSearchSubmit = value => {
-    if (value !== searchRequest) {
-      setSearchRequest(value);
-      setSearchParams({ query: value });
-      setMovies([]);
-      return;
-    }
+    setSearchParams({ query: `${value}` });
+    // if (value !== searchRequest) {
+    //   setSearchRequest(value);
+    //   // setSearchParams({ query: `${value}` });
+    //   setSearchParams({ query: value });
+    //   console.log(currentUrl);
+    //   setMovies([]);
+    //   return;
+    // }
   };
 
   return (
@@ -64,7 +71,7 @@ export default function MoviesPage() {
       {error && toast.error(`Whoops, something went wrong: ${error.message}`)}
       {isLoading && <Loader color={'#3f51b5'} size={32} />}
       {movies.length > 0 && (
-        <MovieGallery movies={movies} currentUrl={currentUrl} />
+        <MovieGallery movies={movies} prevLocation={location} />
       )}
     </>
   );
