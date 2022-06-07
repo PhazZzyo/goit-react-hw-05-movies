@@ -5,5 +5,5 @@ import { Link, useLocation } from 'react-router-dom';
 export default function BackButton() {
   const { state } = useLocation();
   console.log(state);
-  return state?.prevPage && <Link to={state.prevPage}>Back</Link>;
+  return state?.from && <Link to={state.from}>Back</Link>;
 }

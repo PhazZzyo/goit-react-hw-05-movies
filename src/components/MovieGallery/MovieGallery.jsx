@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 // import style from './MovieGallery.module.css';
 import PropTypes from 'prop-types';
 
-export const MovieGallery = ({ movies, currentUrl }) => {
+export const MovieGallery = ({ movies, prevLocation }) => {
   const renderGallery = () =>
     movies.map(({ id, title }) => (
       <li key={id}>
-        <Link to={`/movies/${id}`} state={currentUrl}>
+        <Link to={`/movies/${id}`} state={{ from: prevLocation }}>
           {title}
         </Link>
       </li>
