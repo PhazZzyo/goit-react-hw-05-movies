@@ -1,13 +1,12 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import style from './MovieGallery.module.css';
 import PropTypes from 'prop-types';
 
-export const MovieGallery = ({ movies }) => {
-  const location = useLocation();
+export const MovieGallery = ({ movies, currentUrl }) => {
   const renderGallery = () =>
     movies.map(({ id, title }) => (
       <li key={id}>
-        <Link to={`/movies/${id}`} state={{ from: { location } }}>
+        <Link to={`/movies/${id}`} state={currentUrl}>
           {title}
         </Link>
       </li>
