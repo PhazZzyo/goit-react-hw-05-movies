@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './MovieCard.module.css';
 import defaultPoster from './default-poster.jpg';
@@ -8,7 +8,8 @@ const IMG_CONFIG = {
   size: 'w500',
 };
 
-export default function MovieCard({ movie, prevLocation }) {
+export default function MovieCard({ movie }) {
+  const location = useLocation();
   const {
     id,
     backdrop_path,
@@ -47,22 +48,12 @@ export default function MovieCard({ movie, prevLocation }) {
         <h5>Additional information</h5>
         <ul>
           <li>
-            <Link
-              to={`/movies/${id}/cast`}
-              state={{
-                from: prevLocation,
-              }}
-            >
+            <Link to={`/movies/${id}/cast`} state={{ from: location }}>
               Cast
             </Link>
           </li>
           <li>
-            <Link
-              to={`/movies/${id}/reviews`}
-              state={{
-                from: prevLocation,
-              }}
-            >
+            <Link to={`/movies/${id}/reviews`} state={{ from: location }}>
               Reviews
             </Link>
           </li>
@@ -87,12 +78,6 @@ MovieCard.propTypes = {
         name: PropTypes.string.isRequired,
       }).isRequired
     ).isRequired,
-  }).isRequired,
-  prevLocation: PropTypes.shape({
-    location: PropTypes.shape({
-      pathname: PropTypes.string.isRequired,
-      search: PropTypes.string.isRequired,
-    }).isRequired,
   }).isRequired,
 };
 

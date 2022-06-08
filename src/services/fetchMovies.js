@@ -18,3 +18,11 @@ export const fetchMoviesByRequest = (searchRequest, page = 1) => {
 export const fetchMoviesById = movieId => {
   return http.get(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
 };
+
+export const fetchCast = movieId => {
+  return http.get(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`);
+};
+
+export const fetchReviews = movieId => {
+  return http.get(`${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}`);
+};

@@ -13,17 +13,15 @@ export default function MoviesPage() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const searchRequest = searchParams.get('query');
+  console.log(searchRequest);
 
   const location = useLocation();
   console.log(location);
 
-  // const { pathname, search } = useLocation;
-  // const currentUrl = {
-  //   prevPage: `${pathname}${search}`,
-  // };
-  // console.log(searchParams);
-
   useEffect(() => {
+    if (!searchRequest) {
+      return;
+    }
     const updateMovies = searchRequest => {
       setIsLoading(true);
 
@@ -55,14 +53,6 @@ export default function MoviesPage() {
 
   const handleSearchSubmit = value => {
     setSearchParams({ query: `${value}` });
-    // if (value !== searchRequest) {
-    //   setSearchRequest(value);
-    //   // setSearchParams({ query: `${value}` });
-    //   setSearchParams({ query: value });
-    //   console.log(currentUrl);
-    //   setMovies([]);
-    //   return;
-    // }
   };
 
   return (

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { Container } from 'components/Container/Container';
 import MovieGallery from 'components/MovieGallery/MovieGallery';
@@ -11,6 +11,8 @@ const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const location = useLocation();
 
   useEffect(() => {
     setIsLoading(true);
@@ -35,7 +37,7 @@ const HomePage = () => {
       <Outlet />
       <Container>
         {error && toast.error(`Whoops, something went wrong: ${error.message}`)}
-        <MovieGallery movies={movies} />
+        <MovieGallery movies={movies} prevLocation={location} />
         <ToastContainer autoClose={3000} />
       </Container>
     </>
