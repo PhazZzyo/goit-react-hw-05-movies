@@ -1,26 +1,36 @@
 {
   "files": {
     "main.css": "/PhazZzyo/goit-react-hw-05-movies/static/css/main.b3a96d93.css",
-    "main.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/main.024112eb.js",
+    "main.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/main.aad98669.js",
     "static/css/680.c71aa057.chunk.css": "/PhazZzyo/goit-react-hw-05-movies/static/css/680.c71aa057.chunk.css",
-    "static/js/680.34844bd7.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/680.34844bd7.chunk.js",
+    "static/js/680.b209d2f4.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/680.b209d2f4.chunk.js",
     "static/css/538.31d6cfe0.chunk.css": "/PhazZzyo/goit-react-hw-05-movies/static/css/538.31d6cfe0.chunk.css",
-    "static/js/538.9f427a72.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/538.9f427a72.chunk.js",
+    "static/js/538.d7b52ca2.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/538.d7b52ca2.chunk.js",
     "static/css/825.1fb56aa2.chunk.css": "/PhazZzyo/goit-react-hw-05-movies/static/css/825.1fb56aa2.chunk.css",
-    "static/js/825.9e18b111.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/825.9e18b111.chunk.js",
-    "static/js/94.ecc0b78c.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/94.ecc0b78c.chunk.js",
+    "static/js/825.802b6094.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/825.802b6094.chunk.js",
+    "static/css/997.8a018a8d.chunk.css": "/PhazZzyo/goit-react-hw-05-movies/static/css/997.8a018a8d.chunk.css",
+    "static/js/997.606d3809.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/997.606d3809.chunk.js",
+    "static/css/591.e93bfc31.chunk.css": "/PhazZzyo/goit-react-hw-05-movies/static/css/591.e93bfc31.chunk.css",
+    "static/js/591.21c9661e.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/591.21c9661e.chunk.js",
+    "static/js/569.3fb1309e.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/569.3fb1309e.chunk.js",
+    "static/js/509.35b71cdb.chunk.js": "/PhazZzyo/goit-react-hw-05-movies/static/js/509.35b71cdb.chunk.js",
     "index.html": "/PhazZzyo/goit-react-hw-05-movies/index.html",
     "main.b3a96d93.css.map": "/PhazZzyo/goit-react-hw-05-movies/static/css/main.b3a96d93.css.map",
-    "main.024112eb.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/main.024112eb.js.map",
+    "main.aad98669.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/main.aad98669.js.map",
     "680.c71aa057.chunk.css.map": "/PhazZzyo/goit-react-hw-05-movies/static/css/680.c71aa057.chunk.css.map",
-    "680.34844bd7.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/680.34844bd7.chunk.js.map",
-    "538.9f427a72.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/538.9f427a72.chunk.js.map",
+    "680.b209d2f4.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/680.b209d2f4.chunk.js.map",
+    "538.d7b52ca2.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/538.d7b52ca2.chunk.js.map",
     "825.1fb56aa2.chunk.css.map": "/PhazZzyo/goit-react-hw-05-movies/static/css/825.1fb56aa2.chunk.css.map",
-    "825.9e18b111.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/825.9e18b111.chunk.js.map",
-    "94.ecc0b78c.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/94.ecc0b78c.chunk.js.map"
+    "825.802b6094.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/825.802b6094.chunk.js.map",
+    "997.8a018a8d.chunk.css.map": "/PhazZzyo/goit-react-hw-05-movies/static/css/997.8a018a8d.chunk.css.map",
+    "997.606d3809.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/997.606d3809.chunk.js.map",
+    "591.e93bfc31.chunk.css.map": "/PhazZzyo/goit-react-hw-05-movies/static/css/591.e93bfc31.chunk.css.map",
+    "591.21c9661e.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/591.21c9661e.chunk.js.map",
+    "569.3fb1309e.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/569.3fb1309e.chunk.js.map",
+    "509.35b71cdb.chunk.js.map": "/PhazZzyo/goit-react-hw-05-movies/static/js/509.35b71cdb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b3a96d93.css",
-    "static/js/main.024112eb.js"
+    "static/js/main.aad98669.js"
   ]
 }
