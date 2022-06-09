@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './MovieCard.module.css';
 import defaultPoster from './default-poster.jpg';
@@ -9,7 +9,6 @@ const IMG_CONFIG = {
 };
 
 export default function MovieCard({ movie }) {
-  const location = useLocation();
   const {
     id,
     backdrop_path,
@@ -21,6 +20,7 @@ export default function MovieCard({ movie }) {
   } = movie;
   const { base_url, size } = IMG_CONFIG;
   const imgPath = `${base_url}${size}${backdrop_path}`;
+  const location = useLocation();
 
   return (
     <>
@@ -48,18 +48,17 @@ export default function MovieCard({ movie }) {
         <h5>Additional information</h5>
         <ul>
           <li>
-            <Link to={`/movies/${id}/cast`} state={{ from: location }}>
+            <Link to={`/movies/${id}/cast`} state={location.state}>
               Cast
             </Link>
           </li>
           <li>
-            <Link to={`/movies/${id}/reviews`} state={{ from: location }}>
+            <Link to={`/movies/${id}/reviews`} state={location.state}>
               Reviews
             </Link>
           </li>
         </ul>
       </div>
-      <Outlet />
     </>
   );
 }

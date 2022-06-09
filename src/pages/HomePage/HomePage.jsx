@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { Container } from 'components/Container/Container';
 import MovieGallery from 'components/MovieGallery/MovieGallery';
 import { fetchMovies } from '../../services/fetchMovies';
 import Loader from 'components/Loader/Loader';
-// import styles from './HomePage.module.css';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -34,7 +33,7 @@ const HomePage = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <Outlet />
+      {error && toast.error(`Whoops, something went wrong: ${error.message}`)}
       <Container>
         {error && toast.error(`Whoops, something went wrong: ${error.message}`)}
         <MovieGallery movies={movies} prevLocation={location} />

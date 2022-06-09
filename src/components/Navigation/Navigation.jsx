@@ -29,21 +29,4 @@ export default function Navigation() {
       </ul>
     </nav>
   );
-
-  //   return (
-  //     <nav className={styles['navigation']}>
-  //       <NavLink
-  //         to="/"
-  //         className={({ isActive }) => (isActive ? styles.active : styles.link)}
-  //       >
-  //         Home
-  //       </NavLink>
-  //       <NavLink
-  //         to="/movies"
-  //         className={({ isActive }) => (isActive ? styles.active : styles.link)}
-  //       >
-  //         Movies
-  //       </NavLink>
-  //     </nav>
-  //   );
 }

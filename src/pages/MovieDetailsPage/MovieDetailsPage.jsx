@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { Container } from 'components/Container/Container';
@@ -17,35 +17,33 @@ export default function MovieDetailsPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    setTimeout(() => {
-      try {
-        fetchMoviesById(movieId).then(data => {
-          const {
-            id,
-            backdrop_path,
-            title,
-            release_date,
-            popularity,
-            overview,
-            genres,
-          } = data.data;
-          const object = {
-            id,
-            backdrop_path,
-            title,
-            release_date,
-            popularity,
-            overview,
-            genres,
-          };
-          setMovie(object);
-        });
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    }, 1000);
+    try {
+      fetchMoviesById(movieId).then(data => {
+        const {
+          id,
+          backdrop_path,
+          title,
+          release_date,
+          popularity,
+          overview,
+          genres,
+        } = data.data;
+        const object = {
+          id,
+          backdrop_path,
+          title,
+          release_date,
+          popularity,
+          overview,
+          genres,
+        };
+        setMovie(object);
+      });
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
   }, [movieId]);
 
   return (
@@ -53,9 +51,9 @@ export default function MovieDetailsPage() {
       {error && toast.error(`Whoops, something went wrong: ${error.message}`)}
       <>
         {isLoading && <Loader color={'#3f51b5'} size={32} />}
-        {console.log(movie)}
         <BackButton />
         <Container>{movie && <MovieCard movie={movie} />}</Container>
+        <Outlet />
       </>
     </>
   );

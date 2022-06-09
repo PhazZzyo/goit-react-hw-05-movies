@@ -9,7 +9,6 @@ export default function ReviwesPage(params) {
 
   useEffect(() => {
     fetchReviews(movieId).then(array => {
-      console.log(array);
       const data = array.data.results;
       setReviwes(data);
     });
